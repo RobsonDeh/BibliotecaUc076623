@@ -36,7 +36,7 @@ namespace Biblioteca.Controllers
         }
 
         public IActionResult Listagem(string tipoFiltro, string filtro)
-        {
+        {    
             FiltrosEmprestimos objFiltro = null;
             if(!string.IsNullOrEmpty(filtro))
             {
