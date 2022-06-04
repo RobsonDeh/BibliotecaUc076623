@@ -11,21 +11,21 @@ namespace Biblioteca.Controllers
     {
         public IActionResult Cadastro()
         {
-            Autenticacao.CheckLogin.(this);
+            Autenticacao.CheckLogin(this);
 
 
             LivroService livroService = new LivroService();
             EmprestimoService emprestimoService = new EmprestimoService();
 
             CadEmprestimoViewModel cadModel = new CadEmprestimoViewModel();
-            cadModel.Livros = livroService.ListarTodos();
+            cadModel.Livros = livroService.ListarDisponiveis();
             return View(cadModel);
         }
 
         [HttpPost]
         public IActionResult Cadastro(CadEmprestimoViewModel viewModel)
         {
-           if( ! string.IsNullOrEmpty(viewModel.Emprestimo.NomeUsuario))
+           if( !string.IsNullOrEmpty(viewModel.Emprestimo.NomeUsuario))
            {
             EmprestimoService emprestimoService = new EmprestimoService();
             

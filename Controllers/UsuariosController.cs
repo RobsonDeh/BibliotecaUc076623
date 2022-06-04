@@ -53,17 +53,17 @@ namespace Biblioteca.Controllers
           }
 
           public IActionResult ExcluirUsuario(int id)
-          [
+          {
               return View(new UsuarioService().Listar(id));
-          ]
+          }
 
           [HttpPost]
           public IActionResult ExcluirUsuario(string decisao,int id)
           {
               if(decisao=="EXCLUIR")
               {
-                  ViewData["mensagem"] = "Exclusão do usuario" +new UsuarioService().Listar(id).Nome+" realizada com sucesso";
-                  new UsuarioService().ExcluirUsuario(id);
+                  ViewData["Mensagem"] = "Exclusão do usuario" +new UsuarioService().Listar(id).Nome+" realizada com sucesso";
+                  new UsuarioService().excluirUsuario(id);
                   return View("ListaDeUsuarios",new UsuarioService().Listar());
               }
               else

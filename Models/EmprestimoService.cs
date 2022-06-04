@@ -45,7 +45,7 @@ namespace Biblioteca.Models
                         break;
 
                         case "Livro":
-                        List<Livro> LivrosFiltrados = bc.Livros.Where(l => l.Titulo.Contains(filtro Filtro)).ToList();
+                        List<Livro> LivrosFiltrados = bc.Livros.Where(l => l.Titulo.Contains(filtro.Filtro)).ToList();
 
                         List<int>LivrosIds = new List<int>();
                         for (int i = 0; i < LivrosFiltrados.Count; i++)
@@ -63,14 +63,14 @@ namespace Biblioteca.Models
                 }
                 else
                 {
-                    consulta = bc.Emprestimos
+                    consulta = bc.Emprestimos;
                 }
 
                 List<Emprestimo>ListaConsulta = consulta.OrderBy(e =>e.DataEmprestimo).ToList();
 
-                for (int i = 0; i <ListaConsulta.Count; i==)
+                for (int i = 0; i <ListaConsulta.Count; i++)
                 {
-                    ListaConsulta[i].Livros.Find(ListaConsulta[i].LivroId);
+                    ListaConsulta[i].Livro = bc.Livros.Find(ListaConsulta[i].LivroId);
                 }
 
                 return ListaConsulta;

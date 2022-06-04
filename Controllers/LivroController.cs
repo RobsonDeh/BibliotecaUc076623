@@ -14,7 +14,7 @@ namespace Biblioteca.Controllers
         [HttpPost]
         public IActionResult Cadastro(Livro l)
         {
-            if (! string.IsNullOrEmpty(l.Titulo) && !string.IsNullOrEmpty(l.Autor) && l.ANo!=0)
+            if (! string.IsNullOrEmpty(l.Titulo) && !string.IsNullOrEmpty(l.Autor) && l.Ano!=0)
             {
             LivroService livroService = new LivroService();
 
@@ -47,7 +47,7 @@ namespace Biblioteca.Controllers
                 objFiltro.Filtro = filtro;
                 objFiltro.TipoFiltro = tipoFiltro;
             }
-                ViewData["livrosPorPagina"] = (string.IsNullOrEmpty(itensPorPagina) ? 10 : Int32.Parse(itensPorPagina));
+                ViewData["livrosPorPagina"] = (string.IsNullOrEmpty(itensPorPagina) );
                 ViewData["PaginaAtual"] = (PaginaAtual!=0 ? PaginaAtual : 1);
             LivroService livroService = new LivroService();
             return View(livroService.ListarTodos(objFiltro));
