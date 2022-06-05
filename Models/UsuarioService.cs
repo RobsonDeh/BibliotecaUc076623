@@ -26,7 +26,7 @@ namespace Biblioteca.Models
         {
             using(BibliotecaContext bc = new BibliotecaContext())
             {
-                bc.Add(novoUser);
+                bc.usuarios.Add(novoUser);
                 bc.SaveChanges();
             }
         }

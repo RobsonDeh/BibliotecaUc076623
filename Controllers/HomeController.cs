@@ -32,7 +32,7 @@ namespace Biblioteca.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(string login, string senha)
+        public IActionResult Login(string login,string senha)
         {
             /*if(login != "admin" || senha != "123")*/
             if (Autenticacao.verificaLoginSenha(login,senha,this))

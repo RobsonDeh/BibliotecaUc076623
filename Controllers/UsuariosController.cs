@@ -40,7 +40,7 @@ namespace Biblioteca.Controllers
         }
           
           [HttpPost]
-          public IActionResult RegistrarUsuarios (Usuario novoUser)
+          public IActionResult RegistrarUsuario (Usuario novoUser)
           {
               Autenticacao.CheckLogin(this);
               Autenticacao.verificaSeUsuarioEAdmin(this);
@@ -69,7 +69,7 @@ namespace Biblioteca.Controllers
               else
               {
                   ViewData ["Mensagem"] = "Exclusão cancelada";
-                  return View("ListaDeUJsuarios", new UsuarioService().Listar());
+                  return View("ListaDeUsuarios", new UsuarioService().Listar());
 
               }
           }
