@@ -37,7 +37,7 @@ namespace Biblioteca.Controllers
             {
                 emprestimoService.Atualizar(viewModel.Emprestimo);
             }
-            return RedirectToAction("Listagem");
+            return RedirectToAction("Emprestimo");
            }
            else
            {
